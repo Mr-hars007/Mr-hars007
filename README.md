@@ -1,19 +1,20 @@
-<!-- Typing animation -->
+<!-- Typing animation (SAFE version) -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=26&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=Hi%2C+I'm+Harsha+C+👋;Computer+Science+Engineering+Student;Backend+%7C+Systems+%7C+Full-Stack;Learning+How+Systems+Actually+Work" />
+  <img 
+    src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=26&pause=1000&color=36BCF7&center=true&vCenter=true&width=650&lines=Hi%2C+I'm+Harsha+C;Computer+Science+Engineering+Student;Backend+%7C+Systems+%7C+Full-Stack"
+    alt="Typing SVG"
+  />
 </p>
-
----
 
 <p align="center">
   <a href="https://github.com/Mr-hars007">
     <img src="https://img.shields.io/github/followers/Mr-hars007?label=Followers&style=for-the-badge" />
   </a>
   <a href="https://linkedin.com/in/harsha-c-563266290">
-    <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" />
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin" />
   </a>
-  <a href="mailto:hars14920@gmail.com">
-    <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" />
+  <a href="mailto:hars14920@outlook.com">
+    <img src="https://img.shields.io/badge/Email-Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook" />
   </a>
 </p>
 
@@ -27,15 +28,6 @@
 
 🏆 **Top 20 Young Innovator — IIT Bombay Techfest (2020)**  
 🎯 Open to **software engineering internships & early-career roles**
-
----
-
-## 🧠 Core Focus
-
-- Backend & systems-oriented development  
-- Strong understanding of **OS, DBMS, Networks**
-- Writing code that is **clear, predictable, and maintainable**
-- Learning *why things work*, not just *how*
 
 ---
 
@@ -74,34 +66,6 @@
 
 ---
 
-## 🔥 Contribution Activity
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Mr-hars007&theme=tokyo-night&hide_border=true" />
-</p>
-
----
-
-## 🏅 Highlights
-
-- 🏆 Top 20 Young Innovator — IIT Bombay Techfest  
-- 🥇 Gold Medal — AI Ideathon  
-- 🧠 State-Level SAD Olympiad Qualifier  
-- 💻 RBI Codeathon Participant  
-
----
-
-## 📫 Reach Me
-
-📧 **hars14920@gmail.com**  
-💼 **LinkedIn:** linkedin.com/in/harsha-c-563266290  
-🌐 **Portfolio:** mr-hars007.github.io  
-
----
-
-> *I believe great software comes from strong fundamentals and clear thinking.*
-
-<!-- Wave footer -->
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:36BCF7,100:7B61FF&height=120&section=footer"/>
 </p>
