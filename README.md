@@ -60,9 +60,18 @@
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Mr-hars007&show_icons=true&theme=tokyonight&hide_border=true" height="170"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mr-hars007&layout=compact&theme=tokyonight&hide_border=true" height="170"/>
+  <img
+    src="https://github-readme-stats.vercel.app/api?username=Mr-hars007&show_icons=true&theme=tokyonight&hide_border=true&cache_seconds=86400"
+    height="170"
+    alt="GitHub stats"
+  />
+  <img
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Mr-hars007&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=86400"
+    height="170"
+    alt="Top languages"
+  />
 </p>
+
 
 ---
 
