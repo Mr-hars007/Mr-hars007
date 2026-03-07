@@ -26,8 +26,6 @@
 
 ---
 
----
-
 ## 👨‍💻 About Me
 
 🎓 Computer Science Engineering student based in **Bengaluru, India**  
