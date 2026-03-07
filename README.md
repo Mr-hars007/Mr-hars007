@@ -18,6 +18,14 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://tryhackme.com/p/hars14920">
+    <img src="https://tryhackme-badges.s3.amazonaws.com/hars14920.png" width="260" />
+  </a>
+</p>
+
+---
+
 ---
 
 ## 👨‍💻 About Me
