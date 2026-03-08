@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Harsha C — Portfolio</title>
+<meta name="description" content="Harsha C portfolio showcasing backend systems, cybersecurity, AI projects, research, and certifications.">
 
 <link rel="icon" type="image/png" href="profile.png">
 <link rel="apple-touch-icon" href="profile.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self' data:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self'; base-uri 'self'; form-action 'self'">
 
 <style>
 
@@ -93,9 +92,9 @@
 }
 
 body {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'Cascadia Mono', 'Fira Code', 'Consolas', monospace;
   background: #0d1117;
-  color: #c9d1d9;
+  color: #d6deea;
   line-height: 1.6;
   overflow-x: hidden;
   letter-spacing: 0.3px;
@@ -153,7 +152,6 @@ body::after {
 /* Header */
 .header {
   margin-bottom: 60px;
-  animation: slideInFromLeft 0.8s ease;
 }
 
 .header h1 {
@@ -172,11 +170,10 @@ body::after {
 }
 
 .header p {
-  color: #c9d1d9;
+  color: #d6deea;
   font-size: 14px;
   line-height: 1.8;
   margin: 8px 0;
-  animation: fadeInUp 0.6s ease backwards;
 }
 
 .prompt::before {
@@ -438,9 +435,8 @@ h2 {
   margin-top: 80px;
   padding-top: 20px;
   border-top: 1px dotted rgba(88, 166, 255, 0.15);
-  color: #6e7681;
+  color: #9aa7b8;
   font-size: 12px;
-  animation: fadeInUp 0.8s ease backwards;
 }
 
 /* Modal */
@@ -577,7 +573,6 @@ h2 {
   border-bottom: 2px solid rgba(88, 166, 255, 0.1);
   overflow-x: auto;
   padding-bottom: 15px;
-  animation: slideInFromLeft 0.8s ease;
 }
 
 .tab-button {
@@ -617,6 +612,16 @@ h2 {
 
 .tab-content.active {
   display: block;
+}
+
+#home {
+  min-height: 300px;
+}
+
+#projects,
+#research,
+#certificates {
+  min-height: 360px;
 }
 
 /* Visual Hierarchy Improvements */
@@ -735,6 +740,8 @@ h2 {
     <p>Represented Karnataka in IndiaSkills – Software Application Development.</p>
   </div>
 
+  <main id="main-content" role="main">
+
   <!-- Tab Navigation -->
   <div class="tab-nav">
     <button class="tab-button active" onclick="switchTab('home', this)">HOME</button>
@@ -776,6 +783,8 @@ h2 {
   <div class="footer" style="margin-top: 60px;">
     © 2026 Harsha C // compiled to digital | built with raw code & creativity
   </div>
+
+  </main>
 
 </div>
 
@@ -1598,7 +1607,4 @@ document.addEventListener('DOMContentLoaded', loadData);
 </script>
 
 </body>
-
 </html>
-
-
