@@ -1215,6 +1215,7 @@ function generateCertificateMetadata(filename) {
     issuer = 'TryHackMe';
     name = 'Pre Security';
     icon = '🔒';
+  }
   else {
     // Generic name cleanup
     name = name.split(/[-_]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -1612,4 +1613,5 @@ document.addEventListener('DOMContentLoaded', loadData);
 
 </body>
 </html>
+
 
