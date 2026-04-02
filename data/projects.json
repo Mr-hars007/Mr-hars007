@@ -1,0 +1,27 @@
+[
+  {
+    "id": "fusionforge",
+    "title": "FusionForge",
+    "description": "Multi-model AI answer aggregation platform with React and Node.js that compares, ranks, and synthesizes outputs from multiple language models.",
+    "link": "https://github.com/Mr-hars007",
+    "linkText": "View Code →"
+  },
+  {
+    "id": "jothe",
+    "title": "Jothe",
+    "description": "Privacy-first offline Android productivity app built around one task at a time. It understands routine signals like sleep and busy hours, prioritizes what matters next, adapts to user actions (start, delay, done), and reduces decision friction with a minimal, distraction-free flow.",
+    "links": [
+      {
+        "url": "https://github.com/Mr-hars007/Jothe",
+        "text": "View Code →"
+      }
+    ]
+  },
+  {
+    "id": "smart-alert-box",
+    "title": "All-in-One Smart Alert Box",
+    "description": "IoT safety device built with ESP8266 capable of sending mobile and email alerts using real-time sensor monitoring.",
+    "link": "https://www.youtube.com/watch?v=vM9IUiy8Tuw",
+    "linkText": "Demo Video →"
+  }
+]
