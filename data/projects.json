@@ -1,5 +1,20 @@
 [
   {
+    "id": "clustersage",
+    "title": "ClusterSage",
+    "description": "AI-powered Kubernetes diagnosis and resilience testing for local clusters. It bootstraps demo namespaces, injects controlled failures, and produces explainable LLM-assisted analysis with pod status, logs, and synthetic metrics.",
+    "links": [
+      {
+        "url": "https://github.com/Mr-hars007/ClusterSage",
+        "text": "View Code →"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=epca93qov_0",
+        "text": "Demo Video →"
+      }
+    ]
+  },
+  {
     "id": "fusionforge",
     "title": "FusionForge",
     "description": "Multi-model AI answer aggregation platform with React and Node.js that compares, ranks, and synthesizes outputs from multiple language models.",

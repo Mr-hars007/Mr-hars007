@@ -90,6 +90,15 @@ Project showcases (supports single or multiple links)
 ```json
 [
   {
+    "id": "clustersage",
+    "title": "ClusterSage",
+    "description": "AI-powered Kubernetes diagnosis and resilience testing for local clusters.",
+    "links": [
+      { "text": "View Code →", "url": "https://github.com/Mr-hars007/ClusterSage" },
+      { "text": "Demo Video →", "url": "https://www.youtube.com/watch?v=epca93qov_0" }
+    ]
+  },
+  {
     "id": "fusionforge",
     "title": "FusionForge",
     "description": "Multi-model AI answer aggregation platform with React and Node.js that compares, ranks, and synthesizes outputs from multiple language models.",
