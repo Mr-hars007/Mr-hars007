@@ -890,9 +890,32 @@ function openScannedCertificate(encodedFile) {
 
 function shouldOpenInPopup(url) {
   if (!url) return false;
-  const lower = url.toLowerCase();
-  if (lower.includes('github.com') || lower.includes('linkedin.com')) return false;
-  return !lower.startsWith('#');
+
+  const lower = url.toLowerCase().trim();
+
+  // Never popup-preview these
+  if (
+    lower.startsWith('mailto:') ||
+    lower.startsWith('tel:') ||
+    lower.startsWith('#') ||
+    lower.includes('github.com') ||
+    lower.includes('linkedin.com') ||
+    lower.includes('harsha-c.me')
+  ) {
+    return false;
+  }
+
+  // Only preview supported media/doc types
+  return (
+    lower.endsWith('.pdf') ||
+    lower.endsWith('.jpg') ||
+    lower.endsWith('.jpeg') ||
+    lower.endsWith('.png') ||
+    lower.endsWith('.gif') ||
+    lower.endsWith('.webp') ||
+    lower.includes('youtube.com') ||
+    lower.includes('youtu.be')
+  );
 }
 
 function toYouTubeEmbed(url) {
