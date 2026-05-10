@@ -1,5 +1,20 @@
 [
   {
+    "id": "ghostfile",
+    "title": "GhostFile",
+    "description": "Client-side privacy and metadata analysis tool that inspects files locally in the browser. It analyzes metadata, embedded signals, and privacy-related file information without uploading data to a server.",
+    "links": [
+      {
+        "url": "https://github.com/Mr-hars007/GhostFile",
+        "text": "View Code →"
+      },
+      {
+        "url": "https://ghostfile.harsha-c.me/",
+        "text": "View Demo →"
+      }
+    ]
+  },
+  {
     "id": "clustersage",
     "title": "ClusterSage",
     "description": "AI-powered Kubernetes diagnosis and resilience testing for local clusters. It bootstraps demo namespaces, injects controlled failures, and produces explainable LLM-assisted analysis with pod status, logs, and synthetic metrics.",
