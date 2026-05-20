@@ -1,5 +1,20 @@
 [
   {
+    "id": "starlight-protocol",
+    "title": "STARLIGHT Protocol",
+    "description": "Temporal traversal-based symbolic encoding protocol featuring weekday-dependent 7x7 grid transformations, positional cyclic shifts, and traversal-based word reordering with an interactive visualizer and full protocol trace.",
+    "links": [
+      {
+        "url": "https://github.com/Mr-hars007/starlight-protocol",
+        "text": "View Code →"
+      },
+      {
+        "url": "https://starlight.harsha-c.me/",
+        "text": "View Demo →"
+      }
+    ]
+  },
+  {
     "id": "ghostfile",
     "title": "GhostFile",
     "description": "Client-side privacy and metadata analysis tool that inspects files locally in the browser. It analyzes metadata, embedded signals, and privacy-related file information without uploading data to a server.",

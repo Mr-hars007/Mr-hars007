@@ -494,6 +494,17 @@ h2 {
   overflow: hidden;
 }
 
+.cert-viewer.skill-overview {
+  height: auto;
+  min-height: 0;
+  max-height: 62vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: block;
+  border: 1px solid rgba(88, 166, 255, 0.22);
+  background: rgba(13, 17, 23, 0.35);
+}
+
 .cert-viewer img {
   width: 100%;
   height: 100%;
@@ -741,6 +752,7 @@ h2 {
 <script>
 // ─── Data store ───────────────────────────────────────────────────────────────
 let certificatesData = [];
+let projectsData = [];
 let availableCertificateFiles = [];
 let easterEggState = {
   konamiIndex: 0,
@@ -940,6 +952,7 @@ function previewResource(name, url, sourceLabel = 'Resource') {
   try {
     const modal = document.getElementById('certModal');
     const certViewer = document.getElementById('certViewer');
+    certViewer.classList.remove('skill-overview');
 
     document.getElementById('modalTitle').textContent = name;
     document.getElementById('certIssuer').textContent = sourceLabel;
@@ -985,6 +998,11 @@ function openResource(name, url, sourceLabel) {
   } else {
     window.open(decodedUrl, '_blank', 'noopener,noreferrer');
   }
+}
+
+function downloadLatestGitHubReleaseAsset(owner, repo) {
+  const latestReleaseUrl = `https://github.com/${owner}/${repo}/releases/latest`;
+  window.open(latestReleaseUrl, '_blank', 'noopener,noreferrer');
 }
 
 // ─── Easter eggs ──────────────────────────────────────────────────────────────
@@ -1077,7 +1095,8 @@ function generateCertificateMetadata(filename) {
   let icon = '📜';
 
   if (lower.includes('cybersecurity') || lower.includes('security')) { skill = 'cybersecurity'; icon = '🔐'; }
-  else if (lower.includes('python') || lower.includes('data-structures')) { skill = 'python'; icon = '🐍'; }
+  else if (lower.includes('data-structures') || lower.includes('algorithms')) { skill = 'c / c++'; icon = '⚙️'; }
+  else if (lower.includes('python')) { skill = 'python'; icon = '🐍'; }
   else if (lower.includes('java') && !lower.includes('javascript')) { skill = 'java'; icon = '☕'; }
   else if (lower.includes('cloud') || lower.includes('azure')) { skill = 'azure'; icon = '☁️'; }
   else if (lower.includes('sql') || lower.includes('dbms') || lower.includes('database')) { skill = 'mysql'; icon = '🗄️'; }
@@ -1096,7 +1115,11 @@ function generateCertificateMetadata(filename) {
   } else if (lower.includes('nptel')) {
     issuer = 'NPTEL';
     if (lower.includes('cloud')) name = 'NPTEL – Cloud Computing';
-    else if (lower.includes('data-structures') || lower.includes('algorithms')) name = 'NPTEL – Data Structures and Algorithms';
+    else if (lower.includes('data-structures') || lower.includes('algorithms')) {
+      name = 'NPTEL – Data Structures and Algorithms';
+      skill = 'c / c++';
+      icon = '⚙️';
+    }
     else if (lower.includes('llm') || lower.includes('language-model')) name = 'NPTEL – Introduction to Large Language Models';
     else name = 'NPTEL – ' + name.replace(/nptel[-_]/gi, '').split(/[-_]/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   } else if (lower.includes('google')) {
@@ -1164,8 +1187,10 @@ async function loadData() {
     const certifications = availableCertificateFiles.map(f => generateCertificateMetadata(f));
     certificatesData = certifications;
 
+    projectsData = Array.isArray(results.projects) ? results.projects : [];
+
     if (results.links?.length > 0) renderLinks(results.links);
-    if (results.projects?.length > 0) renderProjects(results.projects);
+    if (projectsData.length > 0) renderProjects(projectsData);
     if (results.research?.length > 0) renderResearch(results.research);
     if (results.skills?.length > 0) renderSkills(results.skills, certifications);
     if (certifications.length > 0) renderCertifications(certifications);
@@ -1197,7 +1222,10 @@ function renderProjects(projects) {
         ? `<a href="#" onclick="event.preventDefault();openResource('${encodeURIComponent(project.title)}','${encodeURIComponent(item.url)}','Projects')">${item.text || 'Open'}</a>`
         : `<a href="${item.url}" target="_blank">${item.text || 'Open'}</a>`
     ).join(' ');
-    return `<div class="card"><h3>${project.title}</h3><p>${project.description}</p><div>${linksHtml}</div></div>`;
+    const downloadBtn = project.id === 'jothe'
+      ? `<a href="#" onclick="event.preventDefault();downloadLatestGitHubReleaseAsset('Mr-hars007','Jothe','.apk')">Download App ↓</a>`
+      : '';
+    return `<div class="card"><h3>${project.title}</h3><p>${project.description}</p><div>${linksHtml}${downloadBtn ? ' ' + downloadBtn : ''}</div></div>`;
   }).join('');
 }
 
@@ -1214,7 +1242,10 @@ function renderResearch(research) {
 
 function renderSkills(skills, certifications) {
   const container = document.getElementById('skillsContainer');
-  const projectSkills = new Set(['JavaScript', 'React', 'Node.js', 'Android', 'Kotlin', 'Jetpack Compose', 'IoT / ESP8266']);
+  const projectSkills = new Set([
+    'JavaScript', 'React', 'Node.js', 'Android', 'Kotlin', 'Jetpack Compose', 'IoT / ESP8266',
+    'Docker', 'Linux', 'Cybersecurity', 'Git', 'AI', 'Python'
+  ]);
 
   container.innerHTML = skills.map(skill => {
     const skillNameLower = skill.toLowerCase();
@@ -1242,47 +1273,139 @@ function showSkillCerts(skill, hasCerts, hasProject) {
     const skillToProjects = {
       'JavaScript': ['FusionForge'], 'React': ['FusionForge'], 'Node.js': ['FusionForge'],
       'Android': ['Jothe'], 'Kotlin': ['Jothe'], 'Jetpack Compose': ['Jothe'],
-      'IoT / ESP8266': ['Smart Alert Box']
+      'IoT / ESP8266': ['Smart Alert Box'],
+      'Python': ['ClusterSage'],
+      'Docker': ['ClusterSage', 'Lograph AI'],
+      'Linux': ['ClusterSage', 'Lograph AI'],
+      'Cybersecurity': ['GhostFile'],
+      'Git': ['STARLIGHT Protocol', 'GhostFile', 'ClusterSage', 'FusionForge', 'Jothe', 'All-in-One Smart Alert Box', 'Lograph AI'],
+      'AI': ['ClusterSage', 'FusionForge', 'Lograph AI']
     };
 
     const skillNameLower = skill.toLowerCase();
     const skillCerts = certificatesData.filter(c => c.skill === skillNameLower);
+    const projects = skillToProjects[skill] || [];
 
-    if (skillCerts.length > 0) {
-      if (skillCerts.length === 1) {
-        showCertificate(skillCerts[0].name, skillCerts[0].issuer, skillCerts[0].skill, skillCerts[0].file);
-      } else {
-        const modal = document.getElementById('certModal');
-        document.getElementById('modalTitle').textContent = `${skill} - Certificates (${skillCerts.length})`;
-        document.getElementById('certIssuer').textContent = 'Multiple Issuers';
-        document.getElementById('certSkill').textContent = skill;
-        document.getElementById('certFile').textContent = `${skillCerts.length} files`;
-        document.getElementById('certViewer').innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;width:100%;">
-          ${skillCerts.map(cert => `<div class="cert-card" onclick="openCertificateFromData('${encodeURIComponent(cert.name)}','${encodeURIComponent(cert.issuer)}','${encodeURIComponent(cert.skill)}','${encodeURIComponent(cert.file)}')">
-            <div class="cert-card-title">${cert.icon} ${cert.name}</div>
-            <div class="cert-card-meta">${cert.issuer}</div>
-          </div>`).join('')}
-        </div>`;
-        modal.classList.add('active');
-      }
-    } else if (hasProject) {
-      const modal = document.getElementById('certModal');
-      const projects = skillToProjects[skill] || [];
-      document.getElementById('modalTitle').textContent = `${skill} - Used in Projects`;
-      document.getElementById('certIssuer').textContent = 'Practical Application';
-      document.getElementById('certSkill').textContent = skill;
-      document.getElementById('certFile').textContent = `${projects.length} project(s)`;
-      document.getElementById('certViewer').innerHTML = `<div style="padding:20px;color:#c9d1d9;">
-        <h3 style="color:#58a6ff;margin-bottom:15px;">💻 Projects Using ${skill}</h3>
-        <ul style="list-style:none;padding:0;">
-          ${projects.map(proj => `<li style="padding:10px;margin:8px 0;background:rgba(88,166,255,0.1);border-left:3px solid #58a6ff;border-radius:3px;"><strong style="color:#79c0ff;">${proj}</strong></li>`).join('')}
-        </ul>
-        <p style="margin-top:20px;color:#8b949e;font-size:12px;">Click the PROJECTS tab to see full project details.</p>
-      </div>`;
-      modal.classList.add('active');
-    }
+    if (!hasCerts && !hasProject) return;
+
+    const modal = document.getElementById('certModal');
+    const certViewer = document.getElementById('certViewer');
+    certViewer.classList.add('skill-overview');
+
+    const hasAnyCerts = skillCerts.length > 0;
+    const hasAnyProjects = projects.length > 0;
+    if (!hasAnyCerts && !hasAnyProjects) return;
+
+    document.getElementById('modalTitle').textContent = `${skill} - Certificates & Projects`;
+    document.getElementById('certIssuer').textContent = hasAnyCerts && hasAnyProjects
+      ? 'Certificates + Practical Usage'
+      : (hasAnyCerts ? 'Certificates' : 'Practical Application');
+    document.getElementById('certSkill').textContent = skill;
+    const summaryParts = [];
+    if (hasAnyCerts) summaryParts.push(`${skillCerts.length} certificate(s)`);
+    if (hasAnyProjects) summaryParts.push(`${projects.length} project(s)`);
+    document.getElementById('certFile').textContent = summaryParts.join(' | ');
+
+    const certSection = hasAnyCerts
+      ? `<div style="margin-bottom:24px;">
+          <h3 style="color:#58a6ff;margin-bottom:12px;">🏆 Certificates (${skillCerts.length})</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;width:100%;">
+            ${skillCerts.map(cert => `<div class="cert-card" onclick="openCertificateFromData('${encodeURIComponent(cert.name)}','${encodeURIComponent(cert.issuer)}','${encodeURIComponent(cert.skill)}','${encodeURIComponent(cert.file)}')">
+              <div class="cert-card-title">${cert.icon} ${cert.name}</div>
+              <div class="cert-card-meta">${cert.issuer}</div>
+            </div>`).join('')}
+          </div>
+        </div>`
+      : '';
+
+    const projectSection = hasAnyProjects
+      ? `<div>
+          <h3 style="color:#58a6ff;margin-bottom:12px;">💻 Projects (${projects.length})</h3>
+          <ul style="list-style:none;padding:0;">
+            ${projects.map(proj => {
+              const hasDetails = Boolean(findProjectByName(proj));
+              if (hasDetails) {
+                return `<li style="margin:8px 0;">
+                  <button onclick="showProjectFromSkill('${encodeURIComponent(proj)}')" style="width:100%;text-align:left;padding:10px;background:rgba(88,166,255,0.1);border-left:3px solid #58a6ff;border-top:1px solid rgba(88,166,255,0.2);border-right:1px solid rgba(88,166,255,0.2);border-bottom:1px solid rgba(88,166,255,0.2);border-radius:3px;color:#79c0ff;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s ease;">
+                    ${proj}
+                  </button>
+                </li>`;
+              }
+
+              return `<li style="margin:8px 0;padding:10px;background:rgba(88,166,255,0.06);border-left:3px solid rgba(88,166,255,0.35);border-top:1px solid rgba(88,166,255,0.14);border-right:1px solid rgba(88,166,255,0.14);border-bottom:1px solid rgba(88,166,255,0.14);border-radius:3px;color:#8b949e;font-size:13px;">
+                ${proj} <span style="font-size:11px;opacity:0.9;">(details unavailable)</span>
+              </li>`;
+            }).join('')}
+          </ul>
+          <p style="margin-top:14px;color:#8b949e;font-size:12px;">Click a project to open full details with links.</p>
+        </div>`
+      : '';
+
+    certViewer.innerHTML = `<div style="padding:18px;color:#c9d1d9;">${certSection}${projectSection}</div>`;
+    modal.classList.add('active');
   } catch (error) {
     console.error('Error showing skill info:', error);
+  }
+}
+
+function normalizeProjectName(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function findProjectByName(projectName) {
+  const wanted = normalizeProjectName(projectName);
+  if (!wanted || !Array.isArray(projectsData)) return null;
+
+  const exact = projectsData.find(project => normalizeProjectName(project.title) === wanted);
+  if (exact) return exact;
+
+  return projectsData.find(project => {
+    const current = normalizeProjectName(project.title);
+    return current.includes(wanted) || wanted.includes(current);
+  }) || null;
+}
+
+function showProjectFromSkill(encodedProjectName) {
+  try {
+    const projectName = decodeURIComponent(encodedProjectName || '');
+    const project = findProjectByName(projectName);
+    if (!project) {
+      alert('Project details not found in project data.');
+      return;
+    }
+
+    const certViewer = document.getElementById('certViewer');
+    certViewer.classList.add('skill-overview');
+
+    const links = Array.isArray(project.links)
+      ? project.links
+      : (project.link ? [{ url: project.link, text: project.linkText || 'Open' }] : []);
+
+    const linksHtml = links.map(item => {
+      const text = item.text || 'Open';
+      const url = item.url || '#';
+      return shouldOpenInPopup(url)
+        ? `<a href="#" onclick="event.preventDefault();openResource('${encodeURIComponent(project.title)}','${encodeURIComponent(url)}','Projects')" style="display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border:1px solid rgba(88,166,255,0.35);border-radius:3px;background:rgba(88,166,255,0.08);color:#79c0ff;text-decoration:none;font-size:12px;font-weight:600;">${text}</a>`
+        : `<a href="${url}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border:1px solid rgba(88,166,255,0.35);border-radius:3px;background:rgba(88,166,255,0.08);color:#79c0ff;text-decoration:none;font-size:12px;font-weight:600;">${text}</a>`;
+    }).join('');
+
+    const downloadBtn = project.id === 'jothe'
+      ? `<a href="#" onclick="event.preventDefault();downloadLatestGitHubReleaseAsset('Mr-hars007','Jothe','.apk')" style="display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border:1px solid rgba(88,166,255,0.35);border-radius:3px;background:rgba(88,166,255,0.08);color:#79c0ff;text-decoration:none;font-size:12px;font-weight:600;">Download App ↓</a>`
+      : '';
+
+    document.getElementById('modalTitle').textContent = `${project.title} - Project Details`;
+    document.getElementById('certIssuer').textContent = 'Projects';
+    document.getElementById('certSkill').textContent = 'Project';
+    document.getElementById('certFile').textContent = `${links.length} link(s)`;
+
+    certViewer.innerHTML = `<div style="padding:18px;color:#c9d1d9;">
+      <h3 style="color:#58a6ff;margin-bottom:10px;">${project.title}</h3>
+      <p style="line-height:1.75;color:#c9d1d9;margin-bottom:16px;">${project.description || 'No description available.'}</p>
+      <div>${(linksHtml + downloadBtn) || '<span style="color:#8b949e;font-size:12px;">No links available.</span>'}</div>
+      <p style="margin-top:14px;color:#8b949e;font-size:12px;">Use the action links above to open code, demo, or video.</p>
+    </div>`;
+  } catch (error) {
+    console.error('Error opening project from skill modal:', error);
   }
 }
 
@@ -1316,6 +1439,7 @@ function showCertificate(name, issuer, skill, file) {
   try {
     const modal = document.getElementById('certModal');
     const certViewer = document.getElementById('certViewer');
+    certViewer.classList.remove('skill-overview');
     const resolvedFile = resolveCertificateFile(file);
 
     const escapeHtml = (text) => {
