@@ -925,6 +925,7 @@ function shouldOpenInPopup(url) {
     lower.endsWith('.png') ||
     lower.endsWith('.gif') ||
     lower.endsWith('.webp') ||
+    lower.endsWith('.mp4') ||
     lower.includes('youtube.com') ||
     lower.includes('youtu.be')
   );
@@ -981,11 +982,19 @@ function previewResource(name, url, sourceLabel = 'Resource') {
       img.src = url;
       img.alt = name;
       certViewer.appendChild(img);
+    } else if (lower.endsWith('.mp4')) {
+      const video = document.createElement('video');
+      video.src = url;
+      video.controls = true;
+      video.style.width = '100%';
+      video.style.height = '100%';
+      video.style.borderRadius = '4px';
+      certViewer.appendChild(video);
     } else {
-      const iframe = document.createElement('iframe');
-      iframe.src = url;
-      certViewer.appendChild(iframe);
-    }
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    certViewer.appendChild(iframe);
+  }
 
     modal.classList.add('active');
   } catch (error) {
