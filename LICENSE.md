@@ -16,4 +16,4 @@ This notice applies solely to original works created by Harsha C and shall be in
 
 For permissions or licensing inquiries, please contact the copyright holder.
 
-Copyright © document.write(new Date().getFullYear()) Harsha C. All Rights Reserved.
+Copyright © 2026 Harsha C. All Rights Reserved.
