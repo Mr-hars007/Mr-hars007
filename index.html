@@ -169,7 +169,6 @@ body::after {
 
 /* Header */
 .header {
-  margin-bottom: 30px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -213,12 +212,12 @@ body::after {
       order: 1;              /* photo comes first */
       transform: none;
       margin: 15px auto;
-      width: 220px;
+      width: 300px;
   }
 
   .header-photo-container {
-      width: 220px;
-      height: 220px;
+      width: 300px;
+      height: 300px;
   }
 
   .header-photo-label {
@@ -247,7 +246,7 @@ body::after {
   }
 
   .tab-nav::-webkit-scrollbar {
-      display: none;
+      display: auto;
   }
 
 }
@@ -292,7 +291,7 @@ body::after {
 
 /* Terminal output */
 #terminal-output {
-  min-height: 72px;
+  min-height: auto;
 }
 
 #terminal-output p {
@@ -852,6 +851,21 @@ h2 {
 .tab-nav::-webkit-scrollbar {
     display: none; /* Chrome, Edge, Safari */
 }
+
+.scroll-hint {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .scroll-hint {
+        display: block;
+        margin-bottom: 10px;
+        color: #79c0ff;
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .container { padding: 30px 15px; }
@@ -875,15 +889,6 @@ h2 {
       <h1>Harsha C</h1>
       <div class="prompt">whoami</div>
       <div id="terminal-output"></div>
-      <div class="achievement-badge" onclick="openCertificateFromData(
-        encodeURIComponent('IndiaSkills South Regional – Medallion of Excellence'),
-        encodeURIComponent('IndiaSkills'),
-        encodeURIComponent('general'),
-        encodeURIComponent(resolveCertificateFile('indiaskills.jpg'))
-      )" style="cursor:pointer;">
-        <span class="badge-icon">🏅</span>
-        <span class="badge-text">Medallion of Excellence — IndiaSkills South Regional 2026 · Software Application Development</span>
-      </div>
     </div>
     <div class="header-photo-wrapper">
       <div class="header-photo-container" id="photo-fluid-wrapper"></div>
@@ -892,7 +897,7 @@ h2 {
   </div>
 
   <main id="main-content" role="main">
-
+  <div class="scroll-hint">← More →</div>
   <!-- Tab Navigation -->
   <div class="tab-nav">
     <button class="tab-button active" onclick="switchTab('home', this)">HOME</button>
@@ -972,7 +977,8 @@ function runTerminalIntro() {
   const lines = [
     'Computer Science Engineering Student focused on',
     'Backend Systems, Cybersecurity, and AI applications.',
-    'Represented Karnataka in IndiaSkills \u2013 Software Application Development.'
+    'Represented Karnataka in IndiaSkills South Regional 2026 \u2013 Software Application Development.',
+    '🏅 Medallion of Excellence \u2013 IndiaSkills South Regional 2026.'
   ];
 
   // Respect reduced-motion preference — render instantly
