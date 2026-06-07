@@ -8,12 +8,15 @@
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "wumvbodx5v");
 </script>
+<script src="photo-fluid.js"></script>
 <meta charset="UTF-8">
 <title>Harsha C - Portfolio</title>
 <meta name="description" content="Harsha C portfolio showcasing backend systems, cybersecurity, AI projects, research, and certifications.">
 
 <link rel="icon" type="image/png" href="profile.png">
 <link rel="apple-touch-icon" href="profile.png">
+<link rel="preload" as="image" href="/data/me.jpg">
+<link rel="preload" as="image" href="/data/me2.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy"
 content="
@@ -86,6 +89,28 @@ form-action 'self';
   50% { opacity: 0; }
 }
 
+@keyframes pixelReveal {
+  0% { clip-path: inset(100% 0 0 0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { clip-path: inset(0% 0 0 0); opacity: 1; }
+}
+
+@keyframes profileGlow {
+  0%, 100% { box-shadow: 0 0 12px rgba(88,166,255,0.25), 0 0 24px rgba(88,166,255,0.1), inset 0 0 8px rgba(88,166,255,0.05); }
+  50% { box-shadow: 0 0 18px rgba(88,166,255,0.35), 0 0 36px rgba(88,166,255,0.15), inset 0 0 12px rgba(88,166,255,0.08); }
+}
+
+@keyframes profileFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes scanReveal {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  60% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -144,7 +169,91 @@ body::after {
 
 /* Header */
 .header {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.header-photo-wrapper {
+  transform: translateY(40px);
+}
+
+.header-photo-container {
+  position: relative;
+  border-radius: 18px;
+  border: 2px solid rgba(88,166,255,0.5);
+  overflow: hidden;
+  animation: profileGlow 4s ease-in-out infinite, profileFloat 6s ease-in-out infinite;
+  width: 300px;
+  height: 300px;
+  will-change: transform;
+}
+
+.header-photo-label {
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+
+  .header {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .header-text {
+      text-align: center;
+      width: 100%;
+  }
+
+  .header-photo-wrapper {
+      order: 1;              /* photo comes first */
+      transform: none;
+      margin: 15px auto;
+      width: 220px;
+  }
+
+  .header-photo-container {
+      width: 220px;
+      height: 220px;
+  }
+
+  .header-photo-label {
+      text-align: center;
+      width: 100%;
+      margin-top: 6px;
+  }
+
+  .achievement-badge {
+      order: 2;              /* badge comes after photo */
+      width: 100%;
+      max-width: 100%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      justify-content: center;
+  }
+
+  .badge-text {
+      font-size: 11px;
+      text-align: center;
+  }
+
+  .tab-nav {
+      overflow-x: auto;
+      scrollbar-width: none;
+  }
+
+  .tab-nav::-webkit-scrollbar {
+      display: none;
+  }
+
+}
+
+.header-text {
+  flex: 1;
 }
 
 .header h1 {
@@ -690,6 +799,59 @@ h2 {
   color: #79c0ff;
 }
 
+.achievement-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-left: 3px solid #ffd700;
+  border-radius: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.06) 0%,
+    rgba(255, 215, 0, 0.02) 100%
+  );
+  animation: legendaryAura 4s ease-in-out infinite;
+  max-width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.achievement-badge:hover {
+  border-color: rgba(255, 215, 0, 0.55);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    rgba(255, 215, 0, 0.04) 100%
+  );
+  transform: translateX(3px);
+}
+
+.badge-text {
+  font-size: 12px;
+  color: #f4d03f;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid rgba(88, 166, 255, 0.1);
+  overflow-x: auto;
+  padding-bottom: 15px;
+  padding-top: 6px; /* ← add this */
+}
+.tab-nav {
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+.tab-nav::-webkit-scrollbar {
+    display: none; /* Chrome, Edge, Safari */
+}
 /* Responsive */
 @media (max-width: 768px) {
   .container { padding: 30px 15px; }
@@ -709,9 +871,24 @@ h2 {
 <div class="container">
 
   <div class="header">
-    <h1>Harsha C</h1>
-    <div class="prompt">whoami</div>
-    <div id="terminal-output"></div>
+    <div class="header-text">
+      <h1>Harsha C</h1>
+      <div class="prompt">whoami</div>
+      <div id="terminal-output"></div>
+      <div class="achievement-badge" onclick="openCertificateFromData(
+        encodeURIComponent('IndiaSkills South Regional – Medallion of Excellence'),
+        encodeURIComponent('IndiaSkills'),
+        encodeURIComponent('general'),
+        encodeURIComponent(resolveCertificateFile('indiaskills.jpg'))
+      )" style="cursor:pointer;">
+        <span class="badge-icon">🏅</span>
+        <span class="badge-text">Medallion of Excellence — IndiaSkills South Regional 2026 · Software Application Development</span>
+      </div>
+    </div>
+    <div class="header-photo-wrapper">
+      <div class="header-photo-container" id="photo-fluid-wrapper"></div>
+      <div class="header-photo-label">// harsha_c.exe</div>
+    </div>
   </div>
 
   <main id="main-content" role="main">
@@ -999,10 +1176,19 @@ function previewResource(name, url, sourceLabel = 'Resource') {
       certViewer.appendChild(iframe);
     } else if (lower.endsWith('.pdf') || lower.includes('/certificates/')) {
       const iframe = document.createElement('iframe');
-      iframe.src = `pdf-viewer.html?file=${encodeURIComponent(url)}`;
+      iframe.src = url;
       iframe.style.width = '100%';
       iframe.style.height = '100%';
       iframe.style.border = '0';
+      iframe.onerror = () => {
+        const fallback = document.createElement('iframe');
+        fallback.src = `pdf-viewer.html?file=${encodeURIComponent(url)}`;
+        fallback.style.width = '100%';
+        fallback.style.height = '100%';
+        fallback.style.border = '0';
+        certViewer.innerHTML = '';
+        certViewer.appendChild(fallback);
+      };
       certViewer.appendChild(iframe);
     } else if (['.jpg', '.jpeg', '.png', '.gif', '.webp'].some(ext => lower.endsWith(ext))) {
       const img = document.createElement('img');
@@ -1497,12 +1683,18 @@ function showCertificate(name, issuer, skill, file) {
 
     if (ext === 'pdf') {
       const iframe = document.createElement('iframe');
-      iframe.src = `pdf-viewer.html?file=${encodeURIComponent(filePath)}`;
+      iframe.src = filePath;
       iframe.style.width = '100%';
       iframe.style.height = '100%';
       iframe.style.border = '0';
       iframe.onerror = () => {
-        certViewer.innerHTML = `<div style="color:#ff6b6b;text-align:center;padding:40px;">Failed to load PDF. <a href="${filePath}" target="_blank" style="color:#58a6ff;">Click here to view in new tab</a></div>`;
+        const fallback = document.createElement('iframe');
+        fallback.src = `pdf-viewer.html?file=${encodeURIComponent(filePath)}`;
+        fallback.style.width = '100%';
+        fallback.style.height = '100%';
+        fallback.style.border = '0';
+        certViewer.innerHTML = '';
+        certViewer.appendChild(fallback);
       };
       certViewer.appendChild(iframe);
     } else if (['jpg','jpeg','png','gif','webp'].includes(ext)) {
