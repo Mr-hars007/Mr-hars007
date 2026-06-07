@@ -1,25 +1,19 @@
 # All Rights Reserved
 
-Copyright (c) 2026 Harsha C
+Copyright © 2026 Harsha C
 
-All rights reserved.
+All Rights Reserved.
 
-This website, including but not limited to its source code, design, layout, visual appearance, written content, project descriptions, graphics, branding, animations, custom effects, and other original materials, is the intellectual property of Harsha C.
+Except where otherwise noted, all original content contained within this website and repository, including but not limited to source code, software implementations, designs, layouts, user interfaces, visual elements, animations, graphics, photographs, written content, project descriptions, branding, and other original creative works, is the intellectual property of Harsha C and is protected by applicable copyright and intellectual property laws.
 
-No part of this website may be copied, reproduced, modified, distributed, republished, mirrored, sold, used to create derivative works, or incorporated into other projects without prior written permission from Harsha C.
+No part of this website or repository may be copied, reproduced, modified, adapted, distributed, republished, mirrored, sublicensed, sold, publicly displayed, incorporated into other works, or used to create derivative works without prior written permission from Harsha C.
 
-Permission is not granted to:
+Accessing, viewing, forking, downloading, or interacting with this website or repository does not grant any license, ownership interest, or right to reuse, reproduce, modify, distribute, or exploit any protected material contained herein.
 
-* Copy or reuse the website design or visual identity.
-* Copy substantial portions of the source code.
-* Republish website content, text, images, or project descriptions.
-* Create websites, portfolios, products, or services that substantially replicate this work.
-* Use the Harsha C name, branding, or associated materials in a misleading manner.
+Third-party libraries, frameworks, services, trademarks, logos, fonts, software components, and other materials referenced or used within this website or repository remain the property of their respective owners and are subject to their own licenses and terms. Nothing in this notice claims ownership of, or grants rights over, any third-party intellectual property.
 
-Viewing this website through a web browser does not grant any license or ownership rights to its content.
+This notice applies solely to original works created by Harsha C and shall be interpreted to the maximum extent permitted by applicable law.
 
-This license applies only to original content created by Harsha C and does not claim ownership of any third-party libraries, frameworks, services, trademarks, logos, fonts, or other resources used within the website. Such materials remain the property of their respective owners and are subject to their own licenses and terms.
+For permissions or licensing inquiries, please contact the copyright holder.
 
-Unauthorized use of this website's original content may violate applicable copyright, trademark, and intellectual property laws.
-
-For permissions or licensing inquiries, please contact the website owner.
+Copyright © document.write(new Date().getFullYear()) Harsha C. All Rights Reserved.
