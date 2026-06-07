@@ -937,7 +937,7 @@ h2 {
   </div>
 
   <div class="footer" style="margin-top: 60px;">
-    © 2026 Harsha C // compiled to digital | built with raw code & creativity
+    © <span id="currentYear"></span> Harsha C // compiled to digital | built with raw code & creativity • All Rights Reserved
   </div>
 
   </main>
@@ -959,6 +959,10 @@ h2 {
 </div>
 
 <script>
+document.getElementById('currentYear').textContent =
+  new Date().getFullYear();
+
+  
 // ─── Data store ───────────────────────────────────────────────────────────────
 let certificatesData = [];
 let projectsData = [];
