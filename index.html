@@ -1181,21 +1181,18 @@ function previewResource(name, url, sourceLabel = 'Resource') {
       iframe.allowFullscreen = true;
       certViewer.appendChild(iframe);
     } else if (lower.endsWith('.pdf') || lower.includes('/certificates/')) {
+        
       const iframe = document.createElement('iframe');
-      iframe.src = url;
+        
+      iframe.src =
+        `pdf-viewer.html?file=${encodeURIComponent(url)}`;
+        
       iframe.style.width = '100%';
       iframe.style.height = '100%';
       iframe.style.border = '0';
-      iframe.onerror = () => {
-        const fallback = document.createElement('iframe');
-        fallback.src = `pdf-viewer.html?file=${encodeURIComponent(url)}`;
-        fallback.style.width = '100%';
-        fallback.style.height = '100%';
-        fallback.style.border = '0';
-        certViewer.innerHTML = '';
-        certViewer.appendChild(fallback);
-      };
+        
       certViewer.appendChild(iframe);
+        
     } else if (['.jpg', '.jpeg', '.png', '.gif', '.webp'].some(ext => lower.endsWith(ext))) {
       const img = document.createElement('img');
       img.src = url;
@@ -1688,21 +1685,18 @@ function showCertificate(name, issuer, skill, file) {
     const ext = resolvedFile.split('.').pop().toLowerCase();
 
     if (ext === 'pdf') {
+    
       const iframe = document.createElement('iframe');
-      iframe.src = filePath;
+    
+      iframe.src =
+        `pdf-viewer.html?file=${encodeURIComponent(filePath)}`;
+    
       iframe.style.width = '100%';
       iframe.style.height = '100%';
       iframe.style.border = '0';
-      iframe.onerror = () => {
-        const fallback = document.createElement('iframe');
-        fallback.src = `pdf-viewer.html?file=${encodeURIComponent(filePath)}`;
-        fallback.style.width = '100%';
-        fallback.style.height = '100%';
-        fallback.style.border = '0';
-        certViewer.innerHTML = '';
-        certViewer.appendChild(fallback);
-      };
+    
       certViewer.appendChild(iframe);
+    
     } else if (['jpg','jpeg','png','gif','webp'].includes(ext)) {
       const img = document.createElement('img');
       img.src = filePath;
