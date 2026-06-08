@@ -94,7 +94,7 @@
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE,
         new Uint8Array([0,0,0,255]));
       const img = new Image();
-      img.crossOrigin = 'anonymous';
+      img.decoding = 'async';
       img.onload = () => {
         gl.activeTexture(gl.TEXTURE0 + unit);
         gl.bindTexture(gl.TEXTURE_2D, tex);
