@@ -556,6 +556,33 @@ h2 {
   padding-bottom: 120px;
 }
 
+.footer-launch-wrap {
+  margin-top: 14px;
+}
+
+.footer-launch-btn {
+  display: inline-block;
+  border: 1px solid rgba(88,166,255,0.4);
+  border-left: 3px solid #58a6ff;
+  background: rgba(88,166,255,0.08);
+  color: #79c0ff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.footer-launch-btn:hover {
+  border-color: #58a6ff;
+  background: rgba(88,166,255,0.14);
+  box-shadow: 0 0 10px rgba(88,166,255,0.2);
+  transform: translateY(-1px);
+}
+
 /* Modal */
 .modal {
   display: none;
@@ -726,6 +753,184 @@ h2 {
 
 #home { min-height: 300px; }
 #projects, #research, #certificates { min-height: 360px; }
+
+/* Nullweave consent + launch transition */
+.game-consent {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: none;
+  place-items: center;
+  padding: 20px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(88,166,255,0.16), transparent 38%),
+    rgba(2, 5, 10, 0.86);
+  backdrop-filter: blur(10px);
+}
+
+.game-consent.active {
+  display: grid;
+  animation: fadeInUp 0.25s ease;
+}
+
+.game-consent-panel {
+  position: relative;
+  width: min(92vw, 560px);
+  overflow: hidden;
+  border: 1px solid rgba(88,166,255,0.72);
+  border-radius: 6px;
+  padding: 30px;
+  background: linear-gradient(145deg, rgba(13,17,23,0.98), rgba(5,10,18,0.98));
+  box-shadow: 0 0 45px rgba(88,166,255,0.2), inset 0 0 28px rgba(88,166,255,0.05);
+}
+
+.game-consent-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(121,192,255,0.12), transparent);
+  transform: translateX(-100%);
+  animation: consentScan 2.4s linear infinite;
+}
+
+@keyframes consentScan {
+  to { transform: translateX(100%); }
+}
+
+.game-consent-kicker {
+  color: #52ffb8;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.game-consent-title {
+  margin: 10px 0 12px;
+  color: #79c0ff;
+  font-size: clamp(24px, 6vw, 38px);
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 18px rgba(88,166,255,0.55);
+}
+
+.game-consent-copy {
+  color: #c9d1d9;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.game-consent-copy span {
+  color: #ff5ca6;
+}
+
+.game-consent-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.game-choice {
+  border: 1px solid rgba(88,166,255,0.4);
+  border-radius: 3px;
+  padding: 10px 16px;
+  color: #9aa7b8;
+  background: rgba(88,166,255,0.04);
+  font: 600 12px/1 'JetBrains Mono', monospace;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.game-choice:hover,
+.game-choice:focus-visible {
+  color: #d6deea;
+  border-color: #79c0ff;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.game-choice.launch {
+  color: #52ffb8;
+  border-color: rgba(82,255,184,0.65);
+  background: rgba(82,255,184,0.08);
+  box-shadow: 0 0 14px rgba(82,255,184,0.12);
+}
+
+.game-choice.launch:hover,
+.game-choice.launch:focus-visible {
+  border-color: #52ffb8;
+  box-shadow: 0 0 20px rgba(82,255,184,0.28);
+}
+
+.game-launch-status {
+  min-height: 18px;
+  margin-top: 14px;
+  color: #ff5ca6;
+  font-size: 11px;
+}
+
+.game-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  background: #02050a;
+}
+
+.game-transition.active {
+  visibility: visible;
+  animation: portalFade 1.15s ease both;
+}
+
+.game-transition-core {
+  position: relative;
+  color: #79c0ff;
+  font-size: clamp(16px, 3vw, 28px);
+  letter-spacing: 0.28em;
+  text-align: center;
+  text-shadow: 0 0 18px #58a6ff;
+}
+
+.game-transition-core::before,
+.game-transition-core::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #52ffb8;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.2);
+  box-shadow: 0 0 35px rgba(82,255,184,0.4);
+  animation: portalRing 0.9s ease-out infinite;
+}
+
+.game-transition-core::after {
+  border-color: #ff2e88;
+  animation-delay: 0.22s;
+}
+
+@keyframes portalFade {
+  0% { opacity: 0; clip-path: circle(0 at 50% 50%); }
+  35%, 75% { opacity: 1; clip-path: circle(75% at 50% 50%); }
+  100% { opacity: 0; clip-path: circle(100% at 50% 50%); }
+}
+
+@keyframes portalRing {
+  to { transform: translate(-50%, -50%) scale(5); opacity: 0; }
+}
+
+@media (max-width: 560px) {
+  .game-consent-panel { padding: 24px 20px; }
+  .game-consent-actions { flex-direction: column-reverse; }
+  .game-choice { width: 100%; padding: 13px 16px; }
+}
 
 /* Visual Hierarchy */
 .tab-section-title {
@@ -935,10 +1140,33 @@ h2 {
 
   <div class="footer" style="margin-top: 60px;">
     © <span id="currentYear"></span> Harsha C // compiled to digital | built with raw code & creativity • All Rights Reserved
+    <div class="footer-launch-wrap">
+      <button id="surpriseLaunchBtn" class="footer-launch-btn" type="button">[ SURPRISE ME ]</button>
+    </div>
   </div>
 
   </main>
 
+</div>
+
+<div class="game-consent" id="gameConsent" aria-hidden="true">
+  <div class="game-consent-panel" role="dialog" aria-modal="true" aria-labelledby="gameConsentTitle">
+    <div class="game-consent-kicker">UNLISTED SYSTEM DETECTED</div>
+    <h2 class="game-consent-title" id="gameConsentTitle">ENTER NULLWEAVE?</h2>
+    <p class="game-consent-copy">
+      Launch a procedural neon arena with dynamic lighting, shader effects, and hostile swarm intelligence.
+      <span>The game will open in a separate tab.</span>
+    </p>
+    <div class="game-consent-actions">
+      <button class="game-choice" id="cancelGameLaunchBtn" type="button">[ STAY HERE ]</button>
+      <button class="game-choice launch" id="confirmGameLaunchBtn" type="button">[ ENTER NULLWEAVE ]</button>
+    </div>
+    <div class="game-launch-status" id="gameLaunchStatus" aria-live="polite"></div>
+  </div>
+</div>
+
+<div class="game-transition" id="gameTransition" aria-hidden="true">
+  <div class="game-transition-core">ENTERING NULLWEAVE</div>
 </div>
 
 <!-- Certificate Modal -->
@@ -1313,6 +1541,51 @@ function showSecretMessage() {
     '✨ The real treasure was the code we wrote along the way ✨'
   ];
   alert(messages[Math.floor(Math.random() * messages.length)]);
+}
+
+function openGameLauncher() {
+  const consent = document.getElementById('gameConsent');
+  if (!consent) return;
+  consent.classList.add('active');
+  consent.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('gameLaunchStatus').textContent = '';
+  document.getElementById('confirmGameLaunchBtn')?.focus();
+}
+
+function requestGameLaunchPermission() {
+  openGameLauncher();
+}
+
+function closeGameLauncher() {
+  const consent = document.getElementById('gameConsent');
+  if (consent) {
+    consent.classList.remove('active');
+    consent.setAttribute('aria-hidden', 'true');
+  }
+  document.body.style.overflow = '';
+  document.getElementById('surpriseLaunchBtn')?.focus();
+}
+
+function launchNullweave() {
+  const status = document.getElementById('gameLaunchStatus');
+  const transition = document.getElementById('gameTransition');
+  const gameWindow = window.open('game.html', '_blank');
+
+  if (!gameWindow) {
+    if (status) status.textContent = 'Popup blocked. Allow popups, then try again.';
+    return;
+  }
+
+  closeGameLauncher();
+  if (transition) {
+    transition.classList.add('active');
+    transition.setAttribute('aria-hidden', 'false');
+    window.setTimeout(() => {
+      transition.classList.remove('active');
+      transition.setAttribute('aria-hidden', 'true');
+    }, 1200);
+  }
 }
 
 // ─── Certificate metadata ─────────────────────────────────────────────────────
@@ -1757,7 +2030,16 @@ function initializeAnimations() {
   });
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeCertModal();
+    if (e.key === 'Escape') {
+      closeCertModal();
+      if (document.getElementById('gameConsent')?.classList.contains('active')) {
+        closeGameLauncher();
+      }
+    }
+    if ((e.key === 'q' || e.key === 'Q') && document.getElementById('gameConsent')?.classList.contains('active')) {
+      e.preventDefault();
+      closeGameLauncher();
+    }
     if (e.altKey && e.key === 'd') {
       e.preventDefault();
       console.log('%c🎉 Welcome to Harsha\'s Portfolio!', 'color:#58a6ff;font-size:16px;font-weight:bold;');
@@ -1770,6 +2052,19 @@ function initializeAnimations() {
   if (modal) {
     window.addEventListener('click', function(event) {
       if (event.target === modal) closeCertModal();
+    });
+  }
+
+  const gameConsent = document.getElementById('gameConsent');
+  const cancelGameLaunchBtn = document.getElementById('cancelGameLaunchBtn');
+  const confirmGameLaunchBtn = document.getElementById('confirmGameLaunchBtn');
+  const surpriseLaunchBtn = document.getElementById('surpriseLaunchBtn');
+  if (cancelGameLaunchBtn) cancelGameLaunchBtn.addEventListener('click', closeGameLauncher);
+  if (confirmGameLaunchBtn) confirmGameLaunchBtn.addEventListener('click', launchNullweave);
+  if (surpriseLaunchBtn) surpriseLaunchBtn.addEventListener('click', requestGameLaunchPermission);
+  if (gameConsent) {
+    window.addEventListener('click', function(event) {
+      if (event.target === gameConsent) closeGameLauncher();
     });
   }
 
