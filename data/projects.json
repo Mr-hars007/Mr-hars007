@@ -15,6 +15,17 @@
     ]
   },
   {
+    "id": "pocketrestore",
+    "title": "PocketRestore AI",
+    "description": "Lightweight on-device AI image restoration framework built from scratch with PyTorch. Generates synthetic training datasets procedurally across 14 visual domain templates, trains a custom Tiny U-Net with attention mechanisms (1.8M params), and optimizes inference via ONNX and quantized INT8 TFLite for fast (<100ms) offline Android execution.",
+    "links": [
+      {
+        "url": "https://github.com/Mr-hars007/PocketRestore",
+        "text": "View Code →"
+      }
+    ]
+  },
+  {
     "id": "ghostfile",
     "title": "GhostFile",
     "description": "Client-side privacy and metadata analysis tool that inspects files locally in the browser. It analyzes metadata, embedded signals, and privacy-related file information without uploading data to a server.",

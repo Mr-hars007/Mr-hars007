@@ -556,33 +556,6 @@ h2 {
   padding-bottom: 120px;
 }
 
-.footer-launch-wrap {
-  margin-top: 14px;
-}
-
-.footer-launch-btn {
-  display: inline-block;
-  border: 1px solid rgba(88,166,255,0.4);
-  border-left: 3px solid #58a6ff;
-  background: rgba(88,166,255,0.08);
-  color: #79c0ff;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 8px 12px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.footer-launch-btn:hover {
-  border-color: #58a6ff;
-  background: rgba(88,166,255,0.14);
-  box-shadow: 0 0 10px rgba(88,166,255,0.2);
-  transform: translateY(-1px);
-}
-
 /* Modal */
 .modal {
   display: none;
@@ -1140,9 +1113,6 @@ h2 {
 
   <div class="footer" style="margin-top: 60px;">
     © <span id="currentYear"></span> Harsha C // compiled to digital | built with raw code & creativity • All Rights Reserved
-    <div class="footer-launch-wrap">
-      <button id="surpriseLaunchBtn" class="footer-launch-btn" type="button">[ SURPRISE ME ]</button>
-    </div>
   </div>
 
   </main>
@@ -1564,7 +1534,6 @@ function closeGameLauncher() {
     consent.setAttribute('aria-hidden', 'true');
   }
   document.body.style.overflow = '';
-  document.getElementById('surpriseLaunchBtn')?.focus();
 }
 
 function launchNullweave() {
@@ -1774,14 +1743,14 @@ function showSkillCerts(skill, hasCerts, hasProject) {
   try {
     const skillToProjects = {
       'JavaScript': ['FusionForge'], 'React': ['FusionForge'], 'Node.js': ['FusionForge'],
-      'Android': ['Jothe'], 'Kotlin': ['Jothe'], 'Jetpack Compose': ['Jothe'],
+      'Android': ['PocketRestore AI', 'Jothe'], 'Kotlin': ['Jothe'], 'Jetpack Compose': ['Jothe'],
       'IoT / ESP8266': ['Smart Alert Box'],
-      'Python': ['ClusterSage'],
+      'Python': ['PocketRestore AI', 'ClusterSage'],
       'Docker': ['ClusterSage', 'Lograph AI'],
       'Linux': ['ClusterSage', 'Lograph AI'],
       'Cybersecurity': ['GhostFile'],
-      'Git': ['STARLIGHT Protocol', 'GhostFile', 'ClusterSage', 'FusionForge', 'Jothe', 'All-in-One Smart Alert Box', 'Lograph AI'],
-      'AI': ['ClusterSage', 'FusionForge', 'Lograph AI']
+      'Git': ['STARLIGHT Protocol', 'PocketRestore AI', 'GhostFile', 'ClusterSage', 'FusionForge', 'Jothe', 'All-in-One Smart Alert Box', 'Lograph AI'],
+      'AI': ['PocketRestore AI', 'ClusterSage', 'FusionForge', 'Lograph AI']
     };
 
     const skillNameLower = skill.toLowerCase();
@@ -2058,10 +2027,8 @@ function initializeAnimations() {
   const gameConsent = document.getElementById('gameConsent');
   const cancelGameLaunchBtn = document.getElementById('cancelGameLaunchBtn');
   const confirmGameLaunchBtn = document.getElementById('confirmGameLaunchBtn');
-  const surpriseLaunchBtn = document.getElementById('surpriseLaunchBtn');
   if (cancelGameLaunchBtn) cancelGameLaunchBtn.addEventListener('click', closeGameLauncher);
   if (confirmGameLaunchBtn) confirmGameLaunchBtn.addEventListener('click', launchNullweave);
-  if (surpriseLaunchBtn) surpriseLaunchBtn.addEventListener('click', requestGameLaunchPermission);
   if (gameConsent) {
     window.addEventListener('click', function(event) {
       if (event.target === gameConsent) closeGameLauncher();
