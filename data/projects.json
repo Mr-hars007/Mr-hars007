@@ -1,5 +1,31 @@
 [
   {
+    "id": "dj-console",
+    "title": "DJ Console",
+    "description": "High-performance client-side Web Audio DJ console featuring dual virtual jogwheels with vinyl scratching inertia physics, 3-band isolator frequency cuts, sound color filters, spectral waveform scrubbing, and real-time live recording.",
+    "links": [
+      {
+        "url": "https://github.com/Mr-hars007/dj-console",
+        "text": "View Code →"
+      },
+      {
+        "url": "https://dj-console.harsha-c.me/",
+        "text": "View Demo →"
+      }
+    ]
+  },
+  {
+    "id": "tinymocklocation",
+    "title": "Tiny Mock Location",
+    "description": "Ultra-lightweight (~42 KB APK) mock location app for Android 9+ and Android Go devices. Built with zero external dependencies, featuring high-accuracy shared map pin parsing, Open Location Code (Plus Codes) support, real-time ADB detection, and persistent foreground service routing.",
+    "links": [
+      {
+        "url": "https://github.com/Mr-hars007/TinyMockLocation",
+        "text": "View Code →"
+      }
+    ]
+  },
+  {
     "id": "starlight-protocol",
     "title": "STARLIGHT Protocol",
     "description": "Temporal traversal-based symbolic encoding protocol featuring weekday-dependent 7x7 grid transformations, positional cyclic shifts, and traversal-based word reordering with an interactive visualizer and full protocol trace.",
