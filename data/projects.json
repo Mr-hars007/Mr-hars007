@@ -1,27 +1,16 @@
 [
   {
-    "id": "starlight-protocol",
-    "title": "STARLIGHT Protocol",
-    "description": "Temporal traversal-based symbolic encoding protocol featuring weekday-dependent 7x7 grid transformations, positional cyclic shifts, and traversal-based word reordering with an interactive visualizer and full protocol trace.",
+    "id": "clustersage",
+    "title": "ClusterSage",
+    "description": "AI-powered Kubernetes diagnosis and resilience testing for local clusters. It bootstraps demo namespaces, injects controlled failures, and produces explainable LLM-assisted analysis with pod status, logs, and synthetic metrics.",
     "links": [
       {
-        "url": "https://github.com/Mr-hars007/starlight-protocol",
+        "url": "https://github.com/Mr-hars007/ClusterSage",
         "text": "View Code →"
       },
       {
-        "url": "https://starlight.harsha-c.me/",
-        "text": "View Demo →"
-      }
-    ]
-  },
-  {
-    "id": "pocketrestore",
-    "title": "PocketRestore AI",
-    "description": "Lightweight on-device AI image restoration framework built from scratch with PyTorch. Generates synthetic training datasets procedurally across 14 visual domain templates, trains a custom Tiny U-Net with attention mechanisms (1.8M params), and optimizes inference via ONNX and quantized INT8 TFLite for fast (<100ms) offline Android execution.",
-    "links": [
-      {
-        "url": "https://github.com/Mr-hars007/PocketRestore",
-        "text": "View Code →"
+        "url": "data/ClusterSage.mp4",
+        "text": "Demo Video →"
       }
     ]
   },
@@ -41,17 +30,39 @@
     ]
   },
   {
-    "id": "clustersage",
-    "title": "ClusterSage",
-    "description": "AI-powered Kubernetes diagnosis and resilience testing for local clusters. It bootstraps demo namespaces, injects controlled failures, and produces explainable LLM-assisted analysis with pod status, logs, and synthetic metrics.",
+    "id": "pocketrestore",
+    "title": "PocketRestore AI",
+    "description": "Lightweight on-device AI image restoration framework built from scratch with PyTorch. Generates synthetic training datasets procedurally across 14 visual domain templates, trains a custom Tiny U-Net with attention mechanisms (1.8M params), and optimizes inference via ONNX and quantized INT8 TFLite for fast (<100ms) offline Android execution.",
     "links": [
       {
-        "url": "https://github.com/Mr-hars007/ClusterSage",
+        "url": "https://github.com/Mr-hars007/PocketRestore",
+        "text": "View Code →"
+      }
+    ]
+  },
+  {
+    "id": "dj-console",
+    "title": "DJ Console",
+    "description": "High-performance client-side Web Audio DJ console featuring dual virtual jogwheels with vinyl scratching inertia physics, 3-band isolator frequency cuts, sound color filters, spectral waveform scrubbing, and real-time live recording.",
+    "links": [
+      {
+        "url": "https://github.com/Mr-hars007/dj-console",
         "text": "View Code →"
       },
       {
-        "url": "data/ClusterSage.mp4",
-        "text": "Demo Video →"
+        "url": "https://dj-console.harsha-c.me/",
+        "text": "View Demo →"
+      }
+    ]
+  },
+  {
+    "id": "jothe",
+    "title": "Jothe",
+    "description": "Privacy-first offline Android productivity app built around one task at a time. It understands routine signals like sleep and busy hours, prioritizes what matters next, adapts to user actions (start, delay, done), and reduces decision friction with a minimal, distraction-free flow.",
+    "links": [
+      {
+        "url": "https://github.com/Mr-hars007/Jothe",
+        "text": "View Code →"
       }
     ]
   },
@@ -67,34 +78,16 @@
     ]
   },
   {
-    "id": "fusionforge",
-    "title": "FusionForge",
-    "description": "Multi-model AI answer aggregation platform with React and Node.js that compares, ranks, and synthesizes outputs from multiple language models.",
-    "link": "https://github.com/Mr-hars007/FusionForge",
-    "linkText": "View Code →"
-  },
-  {
-    "id": "jothe",
-    "title": "Jothe",
-    "description": "Privacy-first offline Android productivity app built around one task at a time. It understands routine signals like sleep and busy hours, prioritizes what matters next, adapts to user actions (start, delay, done), and reduces decision friction with a minimal, distraction-free flow.",
+    "id": "starlight-protocol",
+    "title": "STARLIGHT Protocol",
+    "description": "Temporal traversal-based symbolic encoding protocol featuring weekday-dependent 7x7 grid transformations, positional cyclic shifts, and traversal-based word reordering with an interactive visualizer and full protocol trace.",
     "links": [
       {
-        "url": "https://github.com/Mr-hars007/Jothe",
-        "text": "View Code →"
-      }
-    ]
-  },
-  {
-    "id": "dj-console",
-    "title": "DJ Console",
-    "description": "Client-side Web Audio console exploring real-time digital signal processing, featuring virtual jogwheels with inertia physics, 3-band isolators, and live browser audio mixing.",
-    "links": [
-      {
-        "url": "https://github.com/Mr-hars007/dj-console",
+        "url": "https://github.com/Mr-hars007/starlight-protocol",
         "text": "View Code →"
       },
       {
-        "url": "https://dj-console.harsha-c.me/",
+        "url": "https://starlight.harsha-c.me/",
         "text": "View Demo →"
       }
     ]
@@ -105,5 +98,12 @@
     "description": "IoT safety device built with ESP8266 capable of sending mobile and email alerts using real-time sensor monitoring.",
     "link": "https://www.youtube.com/watch?v=vM9IUiy8Tuw",
     "linkText": "Demo Video →"
+  },
+  {
+    "id": "fusionforge",
+    "title": "FusionForge",
+    "description": "Multi-model AI answer aggregation platform with React and Node.js that compares, ranks, and synthesizes outputs from multiple language models.",
+    "link": "https://github.com/Mr-hars007/FusionForge",
+    "linkText": "View Code →"
   }
 ]
